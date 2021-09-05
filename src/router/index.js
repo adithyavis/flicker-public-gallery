@@ -10,12 +10,6 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  {
-    path: '/photo',
-    name: 'Photo',
-    component: () =>
-      import(/* webpackChunkName: "photo" */ '../views/Photo.vue'),
-  },
 ];
 
 const router = new VueRouter({
