@@ -1,0 +1,22 @@
+export const ANY_TAG = 'any';
+export const TAGS = [
+  ANY_TAG,
+  'cat',
+  'dog',
+  'elephant',
+  'giraffe',
+  'lion',
+  'tiger',
+  'zebra',
+  'monkey',
+  'chimpanzee',
+  'hippopotamus',
+  'gorilla',
+  'leapord',
+  'human',
+  'snake',
+  'fish',
+  'parrot',
+  'mouse',
+  'ant',
+];
