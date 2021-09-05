@@ -1,6 +1,7 @@
-export const ANY_TAG = 'any';
+// NOTE: NONE_TAG means tag is empty, ie. ''
+export const NONE_TAG = 'none';
 export const TAGS = [
-  ANY_TAG,
+  NONE_TAG,
   'cat',
   'dog',
   'elephant',
