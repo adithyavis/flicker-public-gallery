@@ -1,5 +1,5 @@
-let axios = require('axios');
-let jsonpAdapter = require('axios-jsonp');
+import axios from 'axios';
+import jsonpAdapter from 'axios-jsonp';
 
 import { getPhotoSrc, getPhotoId } from '@/utils/photo';
 
@@ -20,6 +20,7 @@ const photosModule = {
     isFetchingPhotos: false,
   },
   getters: {
+    photosByIds: (state) => state.photos.byIds,
     photosToBeDisplayed: (state) =>
       state.photos.toBeDisplayed.map((id) => state.photos.byIds[id]),
     isFetchingPhotos: (state) => state.isFetchingPhotos,

@@ -1,5 +1,10 @@
 <template>
   <div>
+    <PhotoDialog
+      :selected-photo-id="selectedPhotoId"
+      :should-show-photo-dialog="shouldShowPhotoDialog"
+      @close-photo-dialog="closePhotoDialog"
+    />
     <div class="d-flex justify-center align-center height-200">
       <div class="text-h2 color-primary">Flickr Public Gallery</div>
     </div>
@@ -27,7 +32,7 @@
         </v-btn>
       </v-slide-item>
     </v-slide-group>
-    <PhotosGrid />
+    <PhotosGrid @open-photo-dialog="openPhotoDialog" />
   </div>
 </template>
 
@@ -37,16 +42,20 @@ import { mapActions } from 'vuex';
 import { TAGS } from '@/constants/tag';
 
 import PhotosGrid from '@/components/PhotosGrid';
+import PhotoDialog from '@/components/PhotoDialog';
 
 export default {
   name: 'Home',
   components: {
     PhotosGrid,
+    PhotoDialog,
   },
   data() {
     return {
       allTags: TAGS,
       currentTag: null,
+      selectedPhotoId: '',
+      shouldShowPhotoDialog: false,
     };
   },
   watch: {
@@ -59,6 +68,14 @@ export default {
     ...mapActions({
       fetchPhotos: 'photos/fetch',
     }),
+    openPhotoDialog({ id }) {
+      this.selectedPhotoId = id;
+      this.shouldShowPhotoDialog = true;
+    },
+    closePhotoDialog() {
+      this.selectedPhotoId = '';
+      this.shouldShowPhotoDialog = false;
+    },
   },
 };
 </script>

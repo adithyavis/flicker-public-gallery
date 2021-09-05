@@ -30,6 +30,11 @@
             contain
             :src="photo.src"
           >
+            <v-btn
+              text
+              class="width-full height-full"
+              @click="$emit('open-photo-dialog', { id: photo.id })"
+            ></v-btn>
           </v-img>
         </v-col>
       </v-row>
@@ -41,7 +46,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'Photo',
+  name: 'PhotoGrid',
   computed: {
     ...mapGetters({
       photosToBeDisplayed: 'photos/photosToBeDisplayed',

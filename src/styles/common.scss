@@ -1,7 +1,14 @@
 .color-primary {
-  color: var(--v-primary-base);
+  color: var(--v-primary-base) !important;
 }
 
 .relative {
-  position: relative;
+  position: relative !important;
+}
+
+.width-full {
+  width: 100% !important;
+}
+.height-full {
+  height: 100% !important;
 }
