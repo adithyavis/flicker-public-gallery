@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 import { TAGS } from '@/constants/tag';
 
@@ -50,13 +50,14 @@ export default {
     };
   },
   watch: {
-    currentTag() {
+    currentTag(val) {
       // Call Fetch API
+      this.fetchPhotos({ tag: TAGS[val] });
     },
   },
-  computed: {
-    ...mapGetters({
-      photosToBeDisplayed: 'photos/photosToBeDisplayed',
+  methods: {
+    ...mapActions({
+      fetchPhotos: 'photos/fetch',
     }),
   },
 };

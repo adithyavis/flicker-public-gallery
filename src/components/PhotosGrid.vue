@@ -17,7 +17,7 @@
       <v-row>
         <v-col
           v-for="photo in photosToBeDisplayed"
-          :key="photo"
+          :key="photo.id"
           align="center"
           cols="12"
           sm="6"
@@ -28,7 +28,7 @@
             max-width="250"
             max-height="150"
             contain
-            src="https://picsum.photos/id/1/500/300"
+            :src="photo.src"
           >
           </v-img>
         </v-col>
@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::v-deep .v-overlay__content {
+  align-self: start;
+}
 .height-min-300 {
   min-height: 300px;
 }
